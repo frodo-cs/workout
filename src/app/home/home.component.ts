@@ -14,7 +14,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.homeService.getDays().subscribe(res => this.days = res);
+    this.homeService.getDays().subscribe((res: Day[]) => this.days = res);
   }
 
+  addDay(){
+
+  }
 }

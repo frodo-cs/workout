@@ -12,6 +12,14 @@ export class HomeService {
     private http: HttpClient
   ){}
 
+  addDay() {
+
+  }
+
+  editDay() {
+
+  }
+  
   getDays() : Observable<Day[]> {
     return this.http.get<Day[]>('../assets/days.json');
   }
