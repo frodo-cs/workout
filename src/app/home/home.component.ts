@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Day } from '../interfaces/day';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -7,26 +8,13 @@ import { Day } from '../interfaces/day';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  days: Day[] = [
-    {
-    number: 1,
-    exercises: [],
-    name: "Test day 1"
-    },
-    {
-      number: 3,
-      exercises: [],
-      name: "Test day 2"
-    },
-    {
-      number: 5,
-      exercises: [],
-      name: "Test day 3"
-    },
-  ]
-  constructor() { }
+  days: Day[] = [];
+  constructor(
+    private homeService: HomeService
+  ) { }
 
   ngOnInit(): void {
+    this.homeService.getDays().subscribe(res => this.days = res);
   }
 
 }
