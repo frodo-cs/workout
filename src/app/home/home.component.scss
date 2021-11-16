@@ -1,0 +1,17 @@
+$device: web;
+
+@mixin breakpoint($device){
+ @if $device == phone{
+     @media screen and (max-width: 599px) { @content; }
+ } @else if $device == tablet {
+    @media screen and (min-width: 600px) and (max-width: 959px){ @content; }
+ } @else if $device == desktop {
+    @media screen and (min-width: 960px) { @content; }
+ }
+}
+
+.exercise-list {
+    @include breakpoint(phone){
+        display: none;
+    }
+}

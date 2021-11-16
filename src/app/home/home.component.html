@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    Workout
+</mat-toolbar>
+
+<div fxLayout="row">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
+        <div *ngFor="let day of days">
+            <app-day [day]="day"></app-day>
+        </div>
+    </div>
+    <div class="exercise-list" fxFlex="75%" fxFlex.sm="50%">
+        <div *ngFor="let day of days">
+            <app-day [day]="day"></app-day>
+        </div>
+    </div>
+</div>
