@@ -14,13 +14,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { DayComponent } from './day/day.component';
 import { HomeComponent } from './home/home.component';
+import { ExerciseComponent } from './exercise/exercise.component';
+import { ExerciseCardComponent } from './exercise-card/exercise-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DayComponent,
-    HomeComponent
+    HomeComponent,
+    ExerciseComponent,
+    ExerciseCardComponent
   ],
   imports: [
     BrowserModule,
