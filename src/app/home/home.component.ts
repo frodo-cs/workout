@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Day } from '../interfaces/day';
 import { HomeService } from './home.service';
+import { MatDialog } from '@angular/material/dialog';
+import { HomeAddDayComponent } from './home-add-day/home-add-day.component';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +11,44 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
   days: Day[] = [];
+  day: Day = {} as Day;
+
   constructor(
-    private homeService: HomeService
+    private homeService: HomeService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.homeService.getDays().subscribe((res: Day[]) => this.days = res);
+    this.homeService.setDays();
+    this.setDays();
   }
 
-  addDay(){
+  setDays(){
+    let storageDays: string | null = localStorage.getItem("days");
+    if(storageDays){
+      this.days = JSON.parse(storageDays) as Day[];
+    }
+  }
 
+  sortedDays() : Day[] {
+    return this.days.sort((a,b) => {
+      return a.number - b.number;
+    })
+  }
+
+  addDay() : void {
+    const dialogRef = this.dialog.open(HomeAddDayComponent, {
+      width: '250px',
+      data: {
+        name: this.day.name,
+        number: this.days.length + 1
+      }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if(res){
+        this.days.push(res);
+        this.homeService.saveDays(this.days);
+      }
+    }); 
   }
 }

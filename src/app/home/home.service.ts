@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Day } from '../interfaces/day';
 
 @Injectable({
@@ -12,15 +11,13 @@ export class HomeService {
     private http: HttpClient
   ){}
 
-  addDay() {
-
-  }
-
-  editDay() {
-
+  saveDays(days: Day[]) {
+    localStorage.setItem('days', JSON.stringify(days));
   }
   
-  getDays() : Observable<Day[]> {
-    return this.http.get<Day[]>('../assets/days.json');
+  setDays() : void {
+    this.http.get<Day[]>('../assets/days.json').subscribe((data) => {
+      localStorage.setItem('days', JSON.stringify(data));
+    });
   }
 }

@@ -4,7 +4,7 @@
 
 <div fxLayout="row">
     <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
-        <div *ngFor="let day of days">
+        <div *ngFor="let day of sortedDays()">
             <app-day [day]="day"></app-day>
         </div>
         <button class="add-button" 
