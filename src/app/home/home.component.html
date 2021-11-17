@@ -1,16 +1,19 @@
-<mat-toolbar color="primary">
-    Workout
-</mat-toolbar>
+<app-navigation>
+    <div fxLayout="row wrap" fxLayoutGap="10px grid" class="card-display">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let day of sortedDays()">
+            <app-day-card
+                [day]="day"
+                (event)="loadExercises($event)"
+                >
+            </app-day-card>
+        </div>
+        <div *ngIf="days.length < 7" fxLayoutAlign="center center" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
+            <button mat-mini-fab color="accent" (click)="addDay()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </div>
+</app-navigation>
 
-<div fxLayout="row">
-    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
-        <div *ngFor="let day of days">
-            <app-day [day]="day"></app-day>
-        </div>
-    </div>
-    <div class="exercise-list" fxFlex="75%" fxFlex.sm="50%">
-        <div *ngFor="let day of days">
-            <app-day [day]="day"></app-day>
-        </div>
-    </div>
-</div>
+
+

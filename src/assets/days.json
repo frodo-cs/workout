@@ -1,7 +1,178 @@
 [
     {
+        "day": 4,
+        "name": "Test 4",
+        "exercises": [
+            {
+                "name": "test",
+                "description": "this is a test",
+                "sets": [
+                    {
+                        "reps": 0,
+                        "weight": 1,
+                        "time": 2
+                    },
+                    {
+                        "reps": 3,
+                        "weight": 4,
+                        "time": 5
+                    }
+                ],
+                "muscles": [
+                    "Chest"
+                ]
+            },
+            {
+                "name": "test2",
+                "description": "this is a test2",
+                "sets": [
+                    {
+                        "reps": 0,
+                        "weight": 1,
+                        "time": 2
+                    },
+                    {
+                        "reps": 3,
+                        "weight": 4,
+                        "time": 5
+                    }
+                ],
+                "muscles": [
+                    "Chest"
+                ]
+            },
+            {
+                "name": "test3",
+                "description": "this is a test3",
+                "sets": [
+                    {
+                        "reps": 0,
+                        "weight": 1,
+                        "time": 2
+                    },
+                    {
+                        "reps": 3,
+                        "weight": 4,
+                        "time": 5
+                    }
+                ],
+                "muscles": [
+                    "Chest"
+                ]
+            } 
+        ]
+    },
+    {
+        "day": 3,
+        "name": "Test 3",
+        "exercises": [
+            {
+                "name": "test",
+                "description": "this is a test",
+                "sets": [
+                    {
+                        "reps": 0,
+                        "weight": 1,
+                        "time": 2
+                    },
+                    {
+                        "reps": 3,
+                        "weight": 4,
+                        "time": 5
+                    }
+                ],
+                "muscles": [
+                    "Chest"
+                ]
+            }
+        ]
+    },
+    {
         "day": 1,
-        "name": "Test",
-        "exercises": []
+        "name": "Test 1",
+        "exercises": [
+            {
+                "name": "test",
+                "description": "this is a test",
+                "sets": [
+                    {
+                        "reps": 0,
+                        "weight": 1,
+                        "time": 2
+                    },
+                    {
+                        "reps": 3,
+                        "weight": 4,
+                        "time": 5
+                    }
+                ],
+                "muscles": [
+                    "Chest"
+                ]
+            },
+            {
+                "name": "test2",
+                "description": "this is a test2",
+                "sets": [
+                    {
+                        "reps": 0,
+                        "weight": 1,
+                        "time": 2
+                    },
+                    {
+                        "reps": 3,
+                        "weight": 4,
+                        "time": 5
+                    }
+                ],
+                "muscles": [
+                    "Chest"
+                ]
+            },
+            {
+                "name": "test3",
+                "description": "this is a test3",
+                "sets": [
+                    {
+                        "reps": 0,
+                        "weight": 1,
+                        "time": 2
+                    },
+                    {
+                        "reps": 3,
+                        "weight": 4,
+                        "time": 5
+                    }
+                ],
+                "muscles": [
+                    "Chest"
+                ]
+            } 
+        ]
+    },
+    {
+        "day": 2,
+        "name": "Test 2",
+        "exercises": [
+            {
+                "name": "test3",
+                "description": "this is a test3",
+                "sets": [
+                    {
+                        "reps": 0,
+                        "weight": 1,
+                        "time": 2
+                    },
+                    {
+                        "reps": 3,
+                        "weight": 4,
+                        "time": 5
+                    }
+                ],
+                "muscles": [
+                    "Chest"
+                ]
+            }  
+        ]
     }
 ]

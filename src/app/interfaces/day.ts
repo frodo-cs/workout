@@ -1,7 +1,7 @@
 import { Exercise } from "./exercise";
 
 export interface Day {
-    number: number,
+    day: number,
     name: string,
     exercises: Exercise[],
 }
