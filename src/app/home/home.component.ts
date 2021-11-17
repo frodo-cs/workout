@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
 
   sortedDays() : Day[] {
     return this.days.sort((a,b) => {
-      return a.number - b.number;
+      return a.day - b.day;
     })
   }
 
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
       width: '250px',
       data: {
         name: this.day.name,
-        number: this.days.length + 1
+        day: this.days.length + 1
       }
     });
     dialogRef.afterClosed().subscribe(res => {
