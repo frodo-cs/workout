@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Exercise } from '../../interfaces/exercise';
 
 @Component({
@@ -11,6 +11,6 @@ export class ExerciseCardComponent {
   constructor() { }
 
   getMuscles() : string {
-    return this.exercise.muscles.join(',');
+    return this.exercise.muscles.join(', ');
   }
 }
