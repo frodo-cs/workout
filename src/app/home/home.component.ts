@@ -11,7 +11,8 @@ import { HomeAddDayComponent } from './home-add-day/home-add-day.component';
 })
 export class HomeComponent implements OnInit {
   days: Day[] = [];
-  day: Day = {} as Day;
+  dayModal: Day = {} as Day;
+  selectedDay: Day = {} as Day;
 
   constructor(
     private homeService: HomeService,
@@ -36,12 +37,17 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  loadExercises(day: Day) : void {
+    this.selectedDay = day;
+  }
+
   addDay() : void {
     const dialogRef = this.dialog.open(HomeAddDayComponent, {
       width: '250px',
       data: {
-        name: this.day.name,
-        day: this.days.length + 1
+        dayModal: this.days.length + 1,
+        name: this.dayModal.name,
+        exercises: []
       }
     });
     dialogRef.afterClosed().subscribe(res => {

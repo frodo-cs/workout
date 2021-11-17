@@ -17,21 +17,24 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import { DayComponent } from './day/day.component';
+import { DayCardComponent } from './home/day-card/day-card.component';
 import { HomeComponent } from './home/home.component';
-import { ExerciseComponent } from './exercise/exercise.component';
-import { ExerciseCardComponent } from './exercise-card/exercise-card.component';
+import { ExerciseCardComponent } from './home/exercise-card/exercise-card.component';
 import { HomeAddDayComponent } from './home/home-add-day/home-add-day.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DayComponent,
+    DayCardComponent,
     HomeComponent,
-    ExerciseComponent,
     ExerciseCardComponent,
-    HomeAddDayComponent
+    HomeAddDayComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,10 @@ import { HomeAddDayComponent } from './home/home-add-day/home-add-day.component'
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent }
-    ])
+    ]),
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule
   ],
   entryComponents: [HomeAddDayComponent],
   providers: [],

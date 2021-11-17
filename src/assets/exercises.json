@@ -6,12 +6,12 @@
             {
                 "reps": 0,
                 "weight": 1,
-                "time": 2
+                "duration": 2
             },
             {
                 "reps": 3,
                 "weight": 4,
-                "time": 5
+                "duration": 5
             }
         ],
         "muscles": [
@@ -25,12 +25,12 @@
             {
                 "reps": 0,
                 "weight": 1,
-                "time": 2
+                "duration": 2
             },
             {
                 "reps": 3,
                 "weight": 4,
-                "time": 5
+                "duration": 5
             }
         ],
         "muscles": [
@@ -44,12 +44,12 @@
             {
                 "reps": 0,
                 "weight": 1,
-                "time": 2
+                "duration": 2
             },
             {
                 "reps": 3,
                 "weight": 4,
-                "time": 5
+                "duration": 5
             }
         ],
         "muscles": [

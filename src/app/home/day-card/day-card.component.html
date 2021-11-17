@@ -1,0 +1,13 @@
+<mat-card (click)="sendDay()">
+    <mat-card-header>
+        <mat-card-title>
+            {{ day.day }} {{ day.name }}
+        </mat-card-title>
+    </mat-card-header> 
+    <img mat-card-imae src="../../../assets/dumbbell.svg" alt="dumbbell svg">
+    <mat-card-content>
+        <mat-card-subtitle>
+            {{ day.exercises.length }} exercises
+        </mat-card-subtitle>
+    </mat-card-content>   
+</mat-card>
