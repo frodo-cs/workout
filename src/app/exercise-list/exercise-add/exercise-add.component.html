@@ -13,8 +13,8 @@
         </mat-form-field>   
     </div>
     <div fxLayout="column">
-        <div *ngFor="let muscle of muscles; index as i">
-            <mat-checkbox>{{ muscle }}</mat-checkbox>
+        <div *ngFor="let muscle of musclesCheckBox; index as i">
+            <mat-checkbox [(ngModel)]="muscle.checked" (change)="onChange()">{{ muscle.name }}</mat-checkbox>
         </div>
     </div>
 </div>
