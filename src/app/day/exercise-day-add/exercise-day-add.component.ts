@@ -1,21 +1,21 @@
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DayService } from '../day.service';
 import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Exercise } from 'src/app/interfaces/exercise';
-import { ExerciseService } from '../exercise.service';
 import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
-  selector: 'app-exercise-add',
-  templateUrl: './exercise-add.component.html',
-  styleUrls: ['./exercise-add.component.scss']
+  selector: 'app-exercise-day-add',
+  templateUrl: './exercise-day-add.component.html',
+  styleUrls: ['./exercise-day-add.component.scss']
 })
-export class ExerciseAddComponent {
+export class ExerciseDayAddComponent {
   muscles: string[] = [];
   musclesCheckBox: { name: string, checked: boolean }[] = [];
 
   constructor(
-    public exerciseService : ExerciseService,
-    public dialogRef: MatDialogRef<ExerciseAddComponent>,
+    public dayService : DayService,
+    public dialogRef: MatDialogRef<ExerciseDayAddComponent>,
     public sharedService : SharedService,
     @Inject(MAT_DIALOG_DATA) public data: Exercise) { }
 

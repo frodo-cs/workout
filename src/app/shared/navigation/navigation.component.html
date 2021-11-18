@@ -4,7 +4,7 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
+      <a [routerLink]="['/exercises']" routerLinkActive="router-link-active"  *ngIf="(isHandset$ | async) === false">Exercises</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

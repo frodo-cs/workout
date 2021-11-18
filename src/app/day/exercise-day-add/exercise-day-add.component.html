@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>New exercise</h1>
+<div mat-dialog-content fxLayout="row" fxLayoutGap="10px grid" >
+    <div fxLayout="column">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input required minlength="1" matInput [(ngModel)]="data.name">
+        </mat-form-field>   
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <input matInput [(ngModel)]="data.description">
+        </mat-form-field>   
+    </div>
+    <div fxLayout="column">
+        <div *ngFor="let muscle of musclesCheckBox; index as i">
+            <mat-checkbox [(ngModel)]="muscle.checked" (change)="onChange()">{{ muscle.name }}</mat-checkbox>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <span fxFlex></span>
+    <button mat-button color="Principal" dkFocusInitial [mat-dialog-close]="data">Add</button>
+</div>

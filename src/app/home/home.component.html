@@ -1,7 +1,7 @@
 <app-navigation>
     <div fxLayout="row wrap" fxLayoutGap="10px grid" class="card-display">
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let day of sortedDays()">
-            <app-day-card
+            <app-day-card [routerLink]="['/routine', day.id]" routerLinkActive="router-link-active" 
                 [day]="day"
                 (event)="loadExercises($event)"
                 >

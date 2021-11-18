@@ -3,6 +3,7 @@ import { Day } from '../interfaces/day';
 import { HomeService } from './home.service';
 import { MatDialog } from '@angular/material/dialog';
 import { HomeAddDayComponent } from './home-add-day/home-add-day.component';
+import { SharedService } from '../shared/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -16,19 +17,15 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private homeService: HomeService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public sharedService : SharedService,
   ) { }
 
   ngOnInit(): void {
-    this.homeService.setDays();
-    this.setDays();
-  }
-
-  setDays(){
-    let storageDays: string | null = localStorage.getItem('days');
-    if(storageDays){
-      this.days = JSON.parse(storageDays) as Day[];
-    }
+    if(!localStorage.getItem('days')){
+      this.homeService.setDays();   
+    } 
+    this.days = this.sharedService.getDays(); 
   }
 
   sortedDays() : Day[] {
@@ -45,7 +42,8 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(HomeAddDayComponent, {
       width: '250px',
       data: {
-        dayModal: this.days.length + 1,
+        id: this.days.length + 1,
+        day: this.days.length + 1,
         name: this.dayModal.name,
         exercises: []
       }
