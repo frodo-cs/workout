@@ -17,7 +17,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>My Workout App</span>
+      <a [routerLink]="['/']" routerLinkActive="router-link-active">My Workout App</a>
       <span fxFlex></span>
       <a [routerLink]="['/exercises']" routerLinkActive="router-link-active"  *ngIf="(isHandset$ | async) === false">Exercises</a>
     </mat-toolbar>

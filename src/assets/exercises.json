@@ -55,5 +55,43 @@
         "muscles": [
             "Chest"
         ]
-    }   
+    },
+    {
+        "name": "test0",
+        "description": "this is a test3",
+        "sets": [
+            {
+                "reps": 0,
+                "weight": 1,
+                "duration": 2
+            },
+            {
+                "reps": 3,
+                "weight": 4,
+                "duration": 5
+            }
+        ],
+        "muscles": [
+            "Chest", "Back"
+        ]
+    },
+    {
+        "name": "test2",
+        "description": "this is a test3",
+        "sets": [
+            {
+                "reps": 0,
+                "weight": 1,
+                "duration": 2
+            },
+            {
+                "reps": 3,
+                "weight": 4,
+                "duration": 5
+            }
+        ],
+        "muscles": [
+            "Chest", "Abs"
+        ]
+    }       
 ]

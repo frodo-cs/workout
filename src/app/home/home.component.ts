@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   setDays(){
-    let storageDays: string | null = localStorage.getItem("days");
+    let storageDays: string | null = localStorage.getItem('days');
     if(storageDays){
       this.days = JSON.parse(storageDays) as Day[];
     }

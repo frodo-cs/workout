@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,16 +15,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { DayCardComponent } from './home/day-card/day-card.component';
 import { HomeComponent } from './home/home.component';
-import { ExerciseCardComponent } from './home/exercise-card/exercise-card.component';
+import { ExerciseCardComponent } from './exercise-list/exercise-card/exercise-card.component';
 import { HomeAddDayComponent } from './home/home-add-day/home-add-day.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-
+import { ExerciseListComponent } from './exercise-list/exercise-list.component';
+import { ExerciseAddComponent } from './exercise-list/exercise-add/exercise-add.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { MatListModule } from '@angular/material/list';
     HomeComponent,
     ExerciseCardComponent,
     HomeAddDayComponent,
-    NavigationComponent
+    NavigationComponent,
+    ExerciseListComponent,
+    ExerciseAddComponent
   ],
   imports: [
     BrowserModule,
@@ -49,11 +52,9 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatDividerModule,
     MatDialogModule,
+    MatCheckboxModule,
     FlexLayoutModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent }
-    ]),
     LayoutModule,
     MatSidenavModule,
     MatListModule
