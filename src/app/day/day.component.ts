@@ -1,10 +1,8 @@
 import { Exercise } from 'src/app/interfaces/exercise';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Day } from '../interfaces/day';
 import { DayService } from './day.service';
 import { ActivatedRoute } from '@angular/router';
-import { ExerciseDayAddComponent } from './exercise-day-add/exercise-day-add.component';
 
 @Component({
   selector: 'app-day',
@@ -16,11 +14,10 @@ export class DayComponent implements OnInit {
   canEdit: boolean = false;
   freeDays: number[] = [];
   oldDay: number = 0;
-  exercises: Exercise[] = [];
+  newExercise: boolean = false;
 
   constructor(
     public dayService : DayService,
-    public dialog: MatDialog,
     private route: ActivatedRoute,
   ) { }
 
@@ -36,7 +33,7 @@ export class DayComponent implements OnInit {
       this.dayService.setMyExercises(this.day);
     }
     
-    this.exercises = this.dayService.getMyExercises(this.day.id);
+    this.day.exercises = this.dayService.getMyExercises(this.day.id);
   }
 
   editDay() : void {
@@ -52,18 +49,12 @@ export class DayComponent implements OnInit {
   }
 
   addExercise(){
-    const dialogRef = this.dialog.open(ExerciseDayAddComponent, {
-      width: '450px',
-      data: {
-
-      }
-    })
-
-    dialogRef.afterClosed().subscribe(res => {
-      if (res){
-        this.exercises.push(res);
-        this.dayService.saveExercises(this.exercises);
-      }
-    })
+    this.newExercise = !this.newExercise;
+  }
+  
+  saveExercise(exercise : Exercise){
+    this.newExercise = !this.newExercise;
+    this.day.exercises.push(exercise);
+    this.dayService.updateDay(this.day.day, this.day);
   }
 }

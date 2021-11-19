@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-title-group>
+        <mat-card-title>
+            {{ index }} {{ exercise.name }}
+        </mat-card-title>
+        <mat-card-subtitle>
+            Muscles: {{ getMuscles() }}
+        </mat-card-subtitle>
+    </mat-card-title-group>  
+    <div *ngFor="let set of exercise.sets; let i = index">
+        <app-set-card
+            [set]="set"
+            [index]="i"
+        ></app-set-card>
+    </div>
+</mat-card>

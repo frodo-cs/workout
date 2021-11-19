@@ -22,9 +22,6 @@ export class DayService {
     return this.sharedService.getExercises();  
   }
 
-  saveExercises(exercises: Exercise[]) {
-  }
-
   updateDay(oldDay: number, day: Day) : void {
     let days = this.sharedService.getDays();
     days = days.filter(d => { return d.day != oldDay});

@@ -1,5 +1,5 @@
 <app-navigation>
-    <div class="day-info">
+    <div class="day-info" fxLayout="column" fxLayoutGap="10px grid" >
         <div fxLayout="row" fxLayoutAlign="space-evenly center">
 
             <mat-form-field appearance="fill" fxFlex="20%">
@@ -35,12 +35,23 @@
             </button>
         </div>
     </div>
+    <button 
+        mat-raised-button color="primary"
+        (click)="addExercise()"
+        >
+        <mat-icon *ngIf="!newExercise" >add</mat-icon>
+        <mat-icon *ngIf="newExercise" >remove</mat-icon>
+    </button>
+    <app-exercise-day-add 
+        *ngIf="newExercise"
+        (event)="saveExercise($event)"
+    ></app-exercise-day-add>
     <div fxLayout="column" fxLayoutGap="10px grid" class="exercise-view">
-        <div *ngFor="let exercise of exercises" >
-            <app-exercise-card
+        <div *ngFor="let exercise of day.exercises; let i = index" >
+            <app-exercise-full-card
                 [exercise]="exercise"
-            ></app-exercise-card>
+                [index]="i"
+            ></app-exercise-full-card>
         </div>
-        <button (click)="addExercise()">Add</button>
     </div>
 </app-navigation>

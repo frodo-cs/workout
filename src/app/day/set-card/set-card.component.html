@@ -1,0 +1,15 @@
+<mat-card fxLayout="row" fxLayoutAlign="space-between stretch">
+<h2>{{ index }}</h2>
+<div fxLayout="row" *ngIf="set.reps">
+    <b>Reps:</b>
+    <p>{{ set.reps }}</p>
+</div>
+<div fxLayout="row" *ngIf="set.weight">
+    <b>Weight:</b>
+    <p>{{ set.weight }}</p>
+</div>
+<div fxLayout="row" *ngIf="set.duration">
+    <b>Duration:</b>
+    <p>{{ set.duration }}</p>
+</div>
+</mat-card>

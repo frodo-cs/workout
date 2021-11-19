@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ExerciseSet } from './../../interfaces/exercise-set';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-set',
@@ -6,15 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./set.component.scss']
 })
 export class SetComponent implements OnInit {
-  isDuration = true;
-  slideToggleText = "Reps"
+  isDuration = false;
+  slideToggleText = "Reps";
+  set: ExerciseSet = {} as ExerciseSet;
+  @Output() event = new EventEmitter<ExerciseSet>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onSlideChange(): void {
-    this.slideToggleText = this.isDuration ? "Reps" : "Duration";
+    this.slideToggleText = !this.isDuration ? "Reps" : "Duration";
   }
 
+  sendSet() {
+    this.event.emit(this.set);
+  }
 }

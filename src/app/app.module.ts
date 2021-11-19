@@ -32,6 +32,8 @@ import { ExerciseAddComponent } from './exercise-list/exercise-add/exercise-add.
 import { ExerciseDayAddComponent } from './day/exercise-day-add/exercise-day-add.component';
 import { DayComponent } from './day/day.component';
 import { SetComponent } from './day/set/set.component';
+import { SetCardComponent } from './day/set-card/set-card.component';
+import { ExerciseFullCardComponent } from './day/exercise-full-card/exercise-full-card.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { SetComponent } from './day/set/set.component';
     ExerciseAddComponent,
     ExerciseDayAddComponent,
     DayComponent,
-    SetComponent
+    SetComponent,
+    SetCardComponent,
+    ExerciseFullCardComponent
   ],
   imports: [
     BrowserModule,

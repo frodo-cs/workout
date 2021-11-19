@@ -1,8 +1,7 @@
-import { Exercise } from './../../interfaces/exercise';
+import { Exercise } from 'src/app/interfaces/exercise';
 import { ExerciseSet } from './../../interfaces/exercise-set';
 import { DayService } from '../day.service';
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-exercise-day-add',
@@ -10,21 +9,27 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./exercise-day-add.component.scss']
 })
 export class ExerciseDayAddComponent implements OnInit {
+  @Output() event = new EventEmitter<Exercise>();
   exercises: Exercise[] = [];
-  exercise: Exercise = {} as Exercise;
   sets: ExerciseSet[] = [];
+  exercise: Exercise = {} as Exercise;
+  addSet: boolean = false;
 
   constructor(
-    public dayService : DayService,
-    public dialogRef: MatDialogRef<ExerciseDayAddComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Exercise) { }
+  public dayService : DayService
+  ) { }
 
-    ngOnInit(): void {
-      this.exercises = this.dayService.getExerciseList();
-    }
+  ngOnInit(): void {
+    this.exercises = this.dayService.getExerciseList();
+  }
 
-    cancel() : void {
-      this.dialogRef.close();
-    }
+  sendExercise(){
+    this.exercise.sets = this.sets;
+    this.event.emit(this.exercise);
+  }
 
+  onAddSet(set: ExerciseSet){
+    this.sets.push(set);
+    this.addSet = false;
+  }
 }
