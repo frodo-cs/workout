@@ -2,19 +2,16 @@
 <div mat-dialog-content fxLayout="row" fxLayoutGap="10px grid" >
     <div fxLayout="column">
         <mat-form-field appearance="fill">
-            <mat-label>Name</mat-label>
-            <input required minlength="1" matInput [(ngModel)]="data.name">
-        </mat-form-field>   
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Description</mat-label>
-            <input matInput [(ngModel)]="data.description">
-        </mat-form-field>   
-    </div>
-    <div fxLayout="column">
-        <div *ngFor="let muscle of musclesCheckBox; index as i">
-            <mat-checkbox [(ngModel)]="muscle.checked" (change)="onChange()">{{ muscle.name }}</mat-checkbox>
-        </div>
+            <mat-label>Exercise</mat-label>
+            <mat-select [(ngModel)]="exercise">
+                <mat-option *ngFor="let exercise of exercises" [value]="exercise.name">
+                {{ exercise.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field> 
+        <div *ngFor="let set of sets">
+
+        </div> 
     </div>
 </div>
 <div mat-dialog-actions>

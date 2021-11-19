@@ -1,8 +1,8 @@
-import { Set } from "./set";
+import { ExerciseSet } from "./exercise-set";
 
 export interface Exercise {
     name: string,
     description: string,
-    sets: Set[],
+    sets: ExerciseSet[],
     muscles: string[],
 }

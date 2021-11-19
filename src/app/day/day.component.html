@@ -9,7 +9,7 @@
                     {{ day }}
                   </mat-option>
                 </mat-select>
-              </mat-form-field>
+              </mat-form-field>  
     
             <mat-form-field appearance="fill" fxFlex="70%">
                 <mat-label>Name</mat-label>
@@ -41,5 +41,6 @@
                 [exercise]="exercise"
             ></app-exercise-card>
         </div>
+        <button (click)="addExercise()">Add</button>
     </div>
 </app-navigation>

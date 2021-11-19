@@ -11,13 +11,7 @@ export class ExerciseService {
     private http: HttpClient
   ) { }
 
-  saveExercises(days: Exercise[]) {
-    localStorage.setItem('days', JSON.stringify(days));
-  }
-  
-  setExercises() : void {
-    this.http.get<Exercise[]>('../assets/exercises.json').subscribe((data) => {
-      localStorage.setItem('exercises', JSON.stringify(data));
-    });
+  saveExercises(exercises: Exercise[]) {
+    localStorage.setItem('exercises', JSON.stringify(exercises));
   }
 }

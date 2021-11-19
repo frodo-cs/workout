@@ -14,6 +14,14 @@ export class DayService {
     public sharedService : SharedService,
   ) { }
 
+  getExerciseList() : Exercise[] {
+    let storage: string | null = localStorage.getItem('exercises');
+    if(!storage){
+      this.sharedService.setExercises();
+    } 
+    return this.sharedService.getExercises();  
+  }
+
   saveExercises(exercises: Exercise[]) {
   }
 
@@ -44,7 +52,7 @@ export class DayService {
     });
   }
 
-  getExercises(id: number): Exercise[] {
+  getMyExercises(id: number): Exercise[] {
     let storage: string | null = localStorage.getItem('myExercises');
     if(storage){
       let exercises = JSON.parse(storage) as MyExercise[];
@@ -56,7 +64,7 @@ export class DayService {
   }
 
   setMyExercises(day: Day) : void {
-    let storage: string | null = localStorage.getItem('myExercises');
+    let storage: string | null = localStorage.getItem('exercises');
     if(storage){
       let exercises = JSON.parse(storage) as MyExercise[];
       exercises = exercises.filter( x => { return x.id != day.id; });

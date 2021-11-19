@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/shared/shared.service';
   templateUrl: './exercise-add.component.html',
   styleUrls: ['./exercise-add.component.scss']
 })
-export class ExerciseAddComponent {
+export class ExerciseAddComponent implements OnInit {
   muscles: string[] = [];
   musclesCheckBox: { name: string, checked: boolean }[] = [];
 
@@ -19,7 +19,7 @@ export class ExerciseAddComponent {
     public sharedService : SharedService,
     @Inject(MAT_DIALOG_DATA) public data: Exercise) { }
 
-    OnInit() {
+    ngOnInit() : void {
       this.sharedService.setMuscles();
       this.muscles = this.sharedService.getMuscles();
       this.musclesCheckBox = this.muscles.map(m => ({ name: m, checked: false }));

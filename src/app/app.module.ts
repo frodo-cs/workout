@@ -17,6 +17,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 
 import { DayCardComponent } from './home/day-card/day-card.component';
 import { HomeComponent } from './home/home.component';
@@ -30,6 +31,7 @@ import { ExerciseListComponent } from './exercise-list/exercise-list.component';
 import { ExerciseAddComponent } from './exercise-list/exercise-add/exercise-add.component';
 import { ExerciseDayAddComponent } from './day/exercise-day-add/exercise-day-add.component';
 import { DayComponent } from './day/day.component';
+import { SetComponent } from './day/set/set.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { DayComponent } from './day/day.component';
     ExerciseListComponent,
     ExerciseAddComponent,
     ExerciseDayAddComponent,
-    DayComponent
+    DayComponent,
+    SetComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { DayComponent } from './day/day.component';
     MatDialogModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatSlideToggleModule,
     FlexLayoutModule,
     FormsModule,
     LayoutModule,

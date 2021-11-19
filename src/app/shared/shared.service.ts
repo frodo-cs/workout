@@ -11,6 +11,20 @@ export class SharedService {
     private http: HttpClient
   ) { }
 
+  setExercises() : void {
+    this.http.get<Exercise[]>('../assets/exercises.json').subscribe((data) => {
+      localStorage.setItem('exercises', JSON.stringify(data));
+    });
+  }
+
+  getExercises() : Exercise[] {
+    let storage: string | null = localStorage.getItem('exercises');
+    if(storage){
+      return JSON.parse(storage) as Exercise[];
+    }
+    return [];
+  }
+
   setMuscles() : void {
     this.http.get<Exercise[]>('../assets/muscles.json').subscribe((data) => {
       localStorage.setItem('muscles', JSON.stringify(data));

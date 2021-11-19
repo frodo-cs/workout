@@ -1,3 +1,4 @@
+import { SharedService } from 'src/app/shared/shared.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ExerciseService } from './exercise.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,12 +16,13 @@ export class ExerciseListComponent implements OnInit {
   muscles: string[] = [];
   constructor(
     public exerciseService : ExerciseService,
+    public sharedService : SharedService,
     public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
     if(!localStorage.getItem('exercises')){
-      this.exerciseService.setExercises();
+      this.sharedService.setExercises();
     }
     this.setExercises();
   }

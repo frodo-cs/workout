@@ -32,11 +32,11 @@ export class DayComponent implements OnInit {
     this.day = this.dayService.getDay(id);
     this.freeDays = this.dayService.getFreeDays();
 
-    if(!localStorage.getItem('myExercises') && localStorage.getItem('days')){
+    if(localStorage.getItem('days')){
       this.dayService.setMyExercises(this.day);
     }
     
-    this.exercises = this.dayService.getExercises(this.day.id);
+    this.exercises = this.dayService.getMyExercises(this.day.id);
   }
 
   editDay() : void {
@@ -45,8 +45,6 @@ export class DayComponent implements OnInit {
   }
 
   saveDay() : void {
-    console.log(this.oldDay);
-    console.log(this.day);
     this.dayService.updateDay(this.oldDay, this.day);
     this.oldDay = this.day.day;
     this.canEdit = false;
