@@ -28,12 +28,6 @@ export class DayComponent implements OnInit {
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
     this.day = this.dayService.getDay(id);
     this.freeDays = this.dayService.getFreeDays();
-
-    if(localStorage.getItem('days')){
-      this.dayService.setMyExercises(this.day);
-    }
-    
-    this.day.exercises = this.dayService.getMyExercises(this.day.id);
   }
 
   editDay() : void {

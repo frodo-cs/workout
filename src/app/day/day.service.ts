@@ -48,30 +48,4 @@ export class DayService {
       localStorage.setItem('days', JSON.stringify(data));
     });
   }
-
-  getMyExercises(id: number): Exercise[] {
-    let storage: string | null = localStorage.getItem('myExercises');
-    if(storage){
-      let exercises = JSON.parse(storage) as MyExercise[];
-      let exercise = exercises.find(x => x.id == id);
-      if(exercise)
-        return exercise.exercises
-    }
-    return [];
-  }
-
-  setMyExercises(day: Day) : void {
-    let storage: string | null = localStorage.getItem('exercises');
-    if(storage){
-      let exercises = JSON.parse(storage) as MyExercise[];
-      exercises = exercises.filter( x => { return x.id != day.id; });
-      exercises.push({ id: day.id, exercises: day.exercises} as MyExercise);
-    } else {
-      let exercise: MyExercise  = {
-        id: day.id,
-        exercises: day.exercises
-      }
-      localStorage.setItem('myExercises', JSON.stringify([exercise]));
-    }
-  }
 }
