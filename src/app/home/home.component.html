@@ -1,16 +1,14 @@
 <app-navigation>
     <div fxLayout="row wrap" fxLayoutGap="10px grid" class="card-display">
-        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let day of sortedDays()">
-            <app-day-card [routerLink]="['/routine', day.id]" routerLinkActive="router-link-active" 
+        <div fxFlex="20%" fxFlex.xs="80%" fxFlex.sm="50%" *ngFor="let day of sortedDays()">
+            <app-day-card 
                 [day]="day"
-                (event)="loadExercises($event)"
+                (event)="deleteDay($event)"
                 >
             </app-day-card>
         </div>
-        <div *ngIf="days.length < 7" fxLayoutAlign="center center" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
-            <button mat-mini-fab color="accent" (click)="addDay()">
-                <mat-icon>add</mat-icon>
-            </button>
+        <div *ngIf="days.length < 7" fxFlex="20%" fxFlex.xs="80%" fxFlex.sm="50%" fxLayoutAlign="center center">
+            <app-add-card (click)="addDay()"></app-add-card>
         </div>
     </div>
 </app-navigation>

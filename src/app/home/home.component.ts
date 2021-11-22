@@ -34,10 +34,6 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  loadExercises(day: Day) : void {
-    this.selectedDay = day;
-  }
-
   addDay() : void {
     const dialogRef = this.dialog.open(HomeAddDayComponent, {
       width: '250px',
@@ -54,5 +50,10 @@ export class HomeComponent implements OnInit {
         this.homeService.saveDays(this.days);
       }
     }); 
+  }
+
+  deleteDay(day: Day){
+    this.homeService.deleteDay(day);
+    this.days = this.sharedService.getDays(); 
   }
 }

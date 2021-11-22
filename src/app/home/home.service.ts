@@ -11,6 +11,17 @@ export class HomeService {
     private http: HttpClient
   ){}
 
+  deleteDay(day: Day){
+    let storage = localStorage.getItem('days');
+
+    if(storage){
+      let days: Day[] = JSON.parse(storage) as Day[];
+      days = days.filter(x => x.day != day.day);
+      console.log(day);
+      this.saveDays(days);
+    }
+  }
+
   saveDays(days: Day[]) {
     localStorage.setItem('days', JSON.stringify(days));
   }

@@ -34,6 +34,7 @@ import { DayComponent } from './day/day.component';
 import { SetComponent } from './day/set/set.component';
 import { SetCardComponent } from './day/set-card/set-card.component';
 import { ExerciseFullCardComponent } from './day/exercise-full-card/exercise-full-card.component';
+import { AddCardComponent } from './shared/add-card/add-card.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ExerciseFullCardComponent } from './day/exercise-full-card/exercise-ful
     DayComponent,
     SetComponent,
     SetCardComponent,
-    ExerciseFullCardComponent
+    ExerciseFullCardComponent,
+    AddCardComponent
   ],
   imports: [
     BrowserModule,

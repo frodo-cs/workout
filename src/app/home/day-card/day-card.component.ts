@@ -10,7 +10,9 @@ export class DayCardComponent {
   @Input() day: Day = {} as Day;
   @Output() event = new EventEmitter<Day>();
 
-  sendDay(){
-    this.event.emit(this.day);
+  delete() {
+    if(confirm("Are you sure to delete "+ this.day.name)) {
+      this.event.emit(this.day);
+    }
   }
 }
