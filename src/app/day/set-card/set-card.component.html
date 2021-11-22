@@ -1,15 +1,13 @@
-<mat-card fxLayout="row" fxLayoutAlign="space-between stretch">
-<h2>{{ index }}</h2>
-<div fxLayout="row" *ngIf="set.reps">
-    <b>Reps:</b>
-    <p>{{ set.reps }}</p>
-</div>
-<div fxLayout="row" *ngIf="set.weight">
-    <b>Weight:</b>
-    <p>{{ set.weight }}</p>
-</div>
-<div fxLayout="row" *ngIf="set.duration">
-    <b>Duration:</b>
-    <p>{{ set.duration }}</p>
-</div>
+<mat-card fxLayout="row" fxLayoutAlign="start center">
+    <mat-card-title-group>
+        <mat-card-title>
+            Set {{ index + 1 }}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="set.reps">
+            Set {{ index + 1 }} Reps: {{ set.reps }} Weight: {{ set.weight }}
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="set.duration">
+            {{ index }} Reps: {{ set.reps }} Weight: {{ set.weight }} Duration: {{ set.duration }}
+        </mat-card-subtitle>
+    </mat-card-title-group> 
 </mat-card>

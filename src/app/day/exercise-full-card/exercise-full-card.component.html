@@ -7,7 +7,9 @@
             Muscles: {{ getMuscles() }}
         </mat-card-subtitle>
     </mat-card-title-group>  
-    <div *ngFor="let set of exercise.sets; let i = index">
+    <div 
+        fxLayoutGap="10px grid"
+        *ngFor="let set of exercise.sets; let i = index">
         <app-set-card
             [set]="set"
             [index]="i"

@@ -1,7 +1,17 @@
+$padding: 10px;
+
 .day-info {
-    margin: 10px 0;
+    padding: $padding;
 
     button {
-        
+        margin-left: 10px;
+    }
+}
+
+.add-exercise {
+    padding: $padding;
+
+    button {
+        width: 100%;
     }
 }

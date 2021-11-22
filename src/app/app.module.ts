@@ -17,7 +17,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatButtonToggleModule } from '@angular/material/button-toggle'
 
 import { DayCardComponent } from './home/day-card/day-card.component';
 import { HomeComponent } from './home/home.component';
@@ -68,7 +68,7 @@ import { AddCardComponent } from './shared/add-card/add-card.component';
     MatDialogModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatSlideToggleModule,
+    MatButtonToggleModule,
     FlexLayoutModule,
     FormsModule,
     LayoutModule,
