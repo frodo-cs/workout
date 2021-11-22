@@ -17,8 +17,9 @@ export class SetComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSlideChange(): void {
-    this.slideToggleText = !this.isDuration ? "Reps" : "Duration";
+  onToggleChange(val: string): void {
+    console.log(val);
+    this.isDuration = val == "rep" ? false : true;
   }
 
   sendSet() {

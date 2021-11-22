@@ -1,32 +1,43 @@
-<h1 mat-dialog-title>New exercise</h1>
-<div mat-dialog-content fxLayout="column">
-    <div fxLayout="row" fxLayoutAlign="start stretch">
-        <mat-form-field appearance="fill">
-            <mat-label>Exercise</mat-label>
-            <mat-select [(ngModel)]="exercise">
-                <mat-option *ngFor="let exercise of exercises" [value]="exercise" [key]="exercise.name">
-                {{ exercise.name }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field> 
-        <button 
-        mat-raised-button color="secondary"
-        (click)="addSet = !addSet"
-        >Add sets</button>
-    </div>
-    <div fxLayout="column">
-        <app-set 
-            *ngIf="addSet"
-            (event)="onAddSet($event)"></app-set>
-        <div *ngFor="let set of sets; let i = index">
-            <app-set-card
-                [index]="i"
-                [set]="set"
-            ></app-set-card>
+<div class="exercise-day-add">
+    <h1 mat-dialog-title>New exercise</h1>
+    <div mat-dialog-content fxLayout="column">
+        <div
+            class="choose-exercise" 
+            fxLayout="row" 
+            fxLayoutAlign="start stretch">
+            <mat-form-field appearance="fill">
+                <mat-label>Exercise</mat-label>
+                <mat-select [(ngModel)]="exercise">
+                    <mat-option *ngFor="let exercise of exercises" [value]="exercise" [key]="exercise.name">
+                    {{ exercise.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> 
+            <button 
+            mat-raised-button color="secondary"
+            (click)="addSet = !addSet"
+            >Add sets</button>
+        </div>
+        <div 
+            fxLayout="column" 
+            fxFlexFill       
+            class="add-set">
+            <app-set 
+                *ngIf="addSet"
+                (event)="onAddSet($event)">
+            </app-set>
+            <div 
+                *ngFor="let set of sets; let i = index"
+                fxLayoutGap="10px grid">
+                <app-set-card
+                    [index]="i"
+                    [set]="set"
+                ></app-set-card>
+            </div>
         </div>
     </div>
-</div>
-<div>
-    <span fxFlex></span>
-    <button mat-raised-button color="primary" (click)="sendExercise()">Add exercise</button>
+    <div>
+        <span fxFlex></span>
+        <button mat-raised-button color="primary" (click)="sendExercise()">Add exercise</button>
+    </div>
 </div>

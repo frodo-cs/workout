@@ -1,0 +1,19 @@
+.exercise-day-add {
+    padding: 10px;
+
+    .choose-exercise {
+        height: 50px;
+        
+        button {
+            margin-left: 10px;
+        }
+    }
+
+    .add-set {
+        margin: 10px 0;
+
+        app-set {
+            margin-bottom: 10px;
+        }
+    }
+}
