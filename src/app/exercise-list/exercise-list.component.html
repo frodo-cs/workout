@@ -9,6 +9,7 @@
         <div fxFlex="100%" *ngFor="let exercise of sortedExercises()" >
             <app-exercise-card
                 [exercise]="exercise"
+                (event)="removeExercise($event)"
             ></app-exercise-card>
         </div>
     </div>

@@ -19,8 +19,10 @@ export class ExerciseListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.exerciseService.setExercises();
-    this.setExercises();
+    if(!localStorage.getItem('exercises')){
+      this.exerciseService.setExercises();
+    }
+    this.exercises = this.
   }
 
   setExercises() {
@@ -54,4 +56,7 @@ export class ExerciseListComponent implements OnInit {
     })
   }
 
+  removeExercise(exercise: Exercise){
+
+  }
 }

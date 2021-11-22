@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Exercise } from '../../interfaces/exercise';
+import { Exercise } from 'src/app/interfaces/exercise';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-exercise-card',
@@ -8,9 +8,14 @@ import { Exercise } from '../../interfaces/exercise';
 })
 export class ExerciseCardComponent {
   @Input() exercise: Exercise = {} as Exercise;
+  @Output() event = new EventEmitter<Exercise>();
   constructor() { }
 
   getMuscles() : string {
     return this.exercise.muscles.join(', ');
+  }
+
+  delete(){
+    this.event.emit(this.exercise);
   }
 }
