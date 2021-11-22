@@ -29,7 +29,12 @@ export class ExerciseDayAddComponent implements OnInit {
   }
 
   onAddSet(set: ExerciseSet){
+    set.id = this.sets.length + 1;
     this.sets.push(set);
     this.addSet = false;
+  }
+
+  removeSet(set: ExerciseSet){
+    this.sets = this.sets.filter(x => x.id != set.id);
   }
 }

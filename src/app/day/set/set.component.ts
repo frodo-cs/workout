@@ -18,7 +18,6 @@ export class SetComponent implements OnInit {
   }
 
   onToggleChange(val: string): void {
-    console.log(val);
     this.isDuration = val == "rep" ? false : true;
   }
 

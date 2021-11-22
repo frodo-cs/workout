@@ -25,6 +25,12 @@ export class SharedService {
     return [];
   }
 
+  setDays() : void {
+    this.http.get<Day[]>('../assets/days.json').subscribe((data) => {
+      localStorage.setItem('days', JSON.stringify(data));
+    });
+  }
+
   getDays() : Day[] {
     let storage: string | null = localStorage.getItem('days');
     if(storage){

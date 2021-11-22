@@ -9,11 +9,13 @@
                 "description": "this is a test",
                 "sets": [
                     {
+                        "id": 1,
                         "reps": 0,
                         "weight": 1,
                         "time": 2
                     },
                     {
+                        "id": 2,
                         "reps": 3,
                         "weight": 4,
                         "time": 5
@@ -28,11 +30,13 @@
                 "description": "this is a test2",
                 "sets": [
                     {
+                        "id": 1,
                         "reps": 0,
                         "weight": 1,
                         "time": 2
                     },
                     {
+                        "id": 2,
                         "reps": 3,
                         "weight": 4,
                         "time": 5
@@ -47,11 +51,13 @@
                 "description": "this is a test3",
                 "sets": [
                     {
+                        "id": 1,
                         "reps": 0,
                         "weight": 1,
                         "time": 2
                     },
                     {
+                        "id": 2,
                         "reps": 3,
                         "weight": 4,
                         "time": 5
@@ -73,11 +79,13 @@
                 "description": "this is a test",
                 "sets": [
                     {
+                        "id": 1,
                         "reps": 0,
                         "weight": 1,
                         "time": 2
                     },
                     {
+                        "id": 2,
                         "reps": 3,
                         "weight": 4,
                         "time": 5

@@ -21,7 +21,6 @@ export class ExerciseService {
     if(storage){
       let exercises: Exercise[] = JSON.parse(storage) as Exercise[];
       exercises = exercises.filter(x => x.id != exercise.id);
-      console.log(exercise);
       this.saveExercises(exercises);
     }
   }
