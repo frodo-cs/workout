@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Exercise } from 'src/app/interfaces/exercise';
 
 @Component({
@@ -9,9 +9,16 @@ import { Exercise } from 'src/app/interfaces/exercise';
 export class ExerciseFullCardComponent {
   @Input() exercise: Exercise = {} as Exercise;
   @Input() index: number = 0;
+  @Output() event = new EventEmitter<Exercise>();
   constructor() { }
 
   getMuscles() : string {
     return this.exercise.muscles.join(', ');
+  }
+
+  delete() : void {
+    if(confirm("Are you sure to delete "+ this.exercise.name)) {
+      this.event.emit(this.exercise);
+    }
   }
 }

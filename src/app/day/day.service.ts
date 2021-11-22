@@ -1,7 +1,5 @@
-import { MyExercise } from './my-exercise';
 import { Exercise } from 'src/app/interfaces/exercise';
 import { Day } from './../interfaces/day';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SharedService } from '../shared/shared.service';
 
@@ -10,7 +8,6 @@ import { SharedService } from '../shared/shared.service';
 })
 export class DayService {
   constructor(
-    private http: HttpClient,
     public sharedService : SharedService,
   ) { }
 
@@ -42,10 +39,4 @@ export class DayService {
     let allDays = [ 1, 2, 3, 4, 5, 6, 7 ]
     return allDays.filter(d => !days.map(d => { return d.day}).includes(d));
   } 
-
-  setDays() : void {
-    this.http.get<Day[]>('../assets/days.json').subscribe((data) => {
-      localStorage.setItem('days', JSON.stringify(data));
-    });
-  }
 }

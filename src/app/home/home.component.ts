@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if(!localStorage.getItem('days')){
-      this.homeService.setDays();   
+      this.sharedService.setDays();   
     } 
     this.days = this.sharedService.getDays(); 
   }
