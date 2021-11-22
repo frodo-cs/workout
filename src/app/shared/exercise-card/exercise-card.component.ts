@@ -16,6 +16,8 @@ export class ExerciseCardComponent {
   }
 
   delete(){
-    this.event.emit(this.exercise);
+    if(confirm("Are you sure to delete "+ this.exercise.name)) {
+      this.event.emit(this.exercise);
+    }
   }
 }

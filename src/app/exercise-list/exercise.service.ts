@@ -1,4 +1,4 @@
-import { Exercise } from './../interfaces/exercise';
+import { Exercise } from 'src/app/interfaces/exercise';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -11,27 +11,18 @@ export class ExerciseService {
     private http: HttpClient
   ) { }
 
-  setMuscles() : void {
-    this.http.get<Exercise[]>('../assets/muscles.json').subscribe((data) => {
-      localStorage.setItem('muscles', JSON.stringify(data));
-    });
+  saveExercises(exercises: Exercise[]) {
+    localStorage.setItem('exercises', JSON.stringify(exercises));
   }
 
-  getMuscles() : string[] {
-    let storage: string | null = localStorage.getItem('muscles');
+  deleteExercise(exercise: Exercise){
+    let storage = localStorage.getItem('exercises');
+
     if(storage){
-      return JSON.parse(storage) as string[];
+      let exercises: Exercise[] = JSON.parse(storage) as Exercise[];
+      exercises = exercises.filter(x => x.id != exercise.id);
+      console.log(exercise);
+      this.saveExercises(exercises);
     }
-    return [];
-  }
-
-  saveExercises(days: Exercise[]) {
-    localStorage.setItem('days', JSON.stringify(days));
-  }
-  
-  setExercises() : void {
-    this.http.get<Exercise[]>('../assets/exercises.json').subscribe((data) => {
-      localStorage.setItem('exercises', JSON.stringify(data));
-    });
   }
 }

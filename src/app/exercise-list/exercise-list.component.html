@@ -1,12 +1,11 @@
 <app-navigation>
     <div fxLayout="column" fxLayoutGap="10px grid" class="exercise-view">
         <button 
-            fxFlex="100%"
             mat-raised-button color="primary"
             (click)="addExercise()"
             ><mat-icon>add</mat-icon>
         </button>
-        <div fxFlex="100%" *ngFor="let exercise of sortedExercises()" >
+        <div *ngFor="let exercise of sortedExercises()" >
             <app-exercise-card
                 [exercise]="exercise"
                 (event)="removeExercise($event)"

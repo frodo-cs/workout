@@ -1,0 +1,35 @@
+import { Exercise } from 'src/app/interfaces/exercise';
+import { ExerciseSet } from './../../interfaces/exercise-set';
+import { DayService } from '../day.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-exercise-day-add',
+  templateUrl: './exercise-day-add.component.html',
+  styleUrls: ['./exercise-day-add.component.scss']
+})
+export class ExerciseDayAddComponent implements OnInit {
+  @Output() event = new EventEmitter<Exercise>();
+  exercises: Exercise[] = [];
+  sets: ExerciseSet[] = [];
+  exercise: Exercise = {} as Exercise;
+  addSet: boolean = false;
+
+  constructor(
+  public dayService : DayService
+  ) { }
+
+  ngOnInit(): void {
+    this.exercises = this.dayService.getExerciseList();
+  }
+
+  sendExercise(){
+    this.exercise.sets = this.sets;
+    this.event.emit(this.exercise);
+  }
+
+  onAddSet(set: ExerciseSet){
+    this.sets.push(set);
+    this.addSet = false;
+  }
+}

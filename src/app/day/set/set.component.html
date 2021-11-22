@@ -1,0 +1,16 @@
+<div fxLayout="row" fxLayoutAlign="space-between stretch">
+    <mat-slide-toggle fxFlex="15%" [(ngModel)]="isDuration" (change)="onSlideChange()">{{ slideToggleText }}</mat-slide-toggle>
+    <mat-form-field fxFlex="20%" appearance="fill" *ngIf="!isDuration">
+        <mat-label>Reps</mat-label>
+        <input required minlength="1" matInput [(ngModel)]="set.reps">
+    </mat-form-field> 
+    <mat-form-field fxFlex="20%" appearance="fill" *ngIf="!isDuration">
+        <mat-label>Weight</mat-label>
+        <input required minlength="1" matInput [(ngModel)]="set.weight">
+    </mat-form-field> 
+    <mat-form-field fxFlex="20%" appearance="fill" *ngIf="isDuration">
+        <mat-label>Duration</mat-label>
+        <input required minlength="1" matInput [(ngModel)]="set.duration">
+    </mat-form-field> 
+    <button mat-raised-button color="Secondary" (click)="sendSet()">Add new set</button>
+</div>

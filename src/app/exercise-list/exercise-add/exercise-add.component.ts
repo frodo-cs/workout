@@ -1,23 +1,38 @@
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Exercise } from 'src/app/interfaces/exercise';
 import { ExerciseService } from '../exercise.service';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-exercise-add',
   templateUrl: './exercise-add.component.html',
   styleUrls: ['./exercise-add.component.scss']
 })
-export class ExerciseAddComponent {
-  muscles: string[] = [];
+export class ExerciseAddComponent implements OnInit {
+  muscles: string[] = [
+    "Chest",
+    "Shoulders",
+    "Abs",
+    "Back",
+    "Biceps",
+    "Forearm",
+    "Glutes",
+    "Lower Legs",
+    "Upper Legs",
+    "Shoulders",
+    "Triceps",
+    "Cardio"
+  ];
   musclesCheckBox: { name: string, checked: boolean }[] = [];
 
   constructor(
     public exerciseService : ExerciseService,
     public dialogRef: MatDialogRef<ExerciseAddComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Exercise) {
-      this.exerciseService.setMuscles();
-      this.muscles = this.exerciseService.getMuscles();
+    public sharedService : SharedService,
+    @Inject(MAT_DIALOG_DATA) public data: Exercise) { }
+
+    ngOnInit() : void {
       this.musclesCheckBox = this.muscles.map(m => ({ name: m, checked: false }));
     }
 
