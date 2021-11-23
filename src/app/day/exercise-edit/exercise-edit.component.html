@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Edit exercise</h1>
+<div mat-dialog-content fxLayout="column" fxLayoutGap="10px grid" >
+
+    <mat-form-field appearance="fill">
+        <mat-label>Exercise</mat-label>
+        <mat-select [(ngModel)]="data" (selectionChange)="onChange($event.value)">
+            <mat-option *ngFor="let exercise of exercises" [value]="exercise" [key]="exercise.name">
+            {{ exercise.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field> 
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input required minlength="1" matInput [(ngModel)]="data.name">
+    </mat-form-field>    
+
+    <div *ngFor="let set of sets; let i = index">
+        <app-set-card
+            [set]="set"
+            [index]="i"
+        ></app-set-card>
+    </div>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <span fxFlex></span>
+    <button mat-button color="Principal" dkFocusInitial [mat-dialog-close]="data">Save</button>
+</div>

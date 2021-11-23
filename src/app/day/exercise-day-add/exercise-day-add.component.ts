@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ExerciseDayAddComponent implements OnInit {
   @Output() event = new EventEmitter<Exercise>();
-  @Input() exercise: Exercise = {} as Exercise;
+  exercise: Exercise = {} as Exercise;
   exercises: Exercise[] = [];
   sets: ExerciseSet[] = [];
   addSet: boolean = false;
@@ -25,6 +25,7 @@ export class ExerciseDayAddComponent implements OnInit {
 
   sendExercise(){
     this.exercise.sets = this.sets;
+    this.exercise.id = Date.now();
     this.event.emit(this.exercise);
   }
 

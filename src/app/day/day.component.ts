@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Day } from '../interfaces/day';
 import { DayService } from './day.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ExerciseEditComponent } from './exercise-edit/exercise-edit.component';
 
 @Component({
   selector: 'app-day',
@@ -16,12 +18,12 @@ export class DayComponent implements OnInit {
   freeDays: number[] = [];
   oldDay: number = 0;
   newExercise: boolean = false;
-  exercise: Exercise = {} as Exercise;
 
   constructor(
     public sharedService : SharedService,
     public dayService : DayService,
     private route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() : void {
@@ -61,7 +63,23 @@ export class DayComponent implements OnInit {
   }
 
   editExercise(exercise : Exercise){
-    this.newExercise = true;
-    this.exercise = exercise;
+    const dialogRef = this.dialog.open(ExerciseEditComponent, {
+      width: '450px',
+      data: {
+        id: exercise.id,
+        muscles: exercise.muscles ? exercise.muscles : [],
+        name: exercise.name ? exercise.name : 'unnamed',
+        description: exercise.description ? exercise.description : '',
+        sets: exercise.sets
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(res => {
+      if (res){
+        this.day.exercises = this.day.exercises.filter(x => x.id != exercise.id);
+        this.day.exercises.push(res);
+        this.dayService.updateDay
+      }
+    })
   }
 }
