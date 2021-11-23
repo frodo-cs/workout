@@ -9,7 +9,10 @@ import { Exercise } from 'src/app/interfaces/exercise';
 export class ExerciseFullCardComponent {
   @Input() exercise: Exercise = {} as Exercise;
   @Input() index: number = 0;
-  @Output() event = new EventEmitter<Exercise>();
+  @Output() removeEvent = new EventEmitter<Exercise>();
+  @Output() editEvent = new EventEmitter<Exercise>();
+  isEditing: boolean = false;
+
   constructor() { }
 
   getMuscles() : string {
@@ -18,7 +21,11 @@ export class ExerciseFullCardComponent {
 
   delete() : void {
     if(confirm("Are you sure to delete "+ this.exercise.name)) {
-      this.event.emit(this.exercise);
+      this.removeEvent.emit(this.exercise);
     }
+  }
+
+  edit() : void {
+    this.editEvent.emit(this.exercise)
   }
 }

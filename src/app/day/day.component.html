@@ -46,6 +46,7 @@
         <app-exercise-day-add 
             *ngIf="newExercise"
             (event)="saveExercise($event)"
+            [exercise]="exercise"
         ></app-exercise-day-add>
     </div>
 
@@ -54,7 +55,8 @@
             <app-exercise-full-card
                 [exercise]="exercise"
                 [index]="i"
-                (event)="removeExercise($event)"
+                (removeEvent)="removeExercise($event)"
+                (editEvent)="editExercise($event)"
             ></app-exercise-full-card>
         </div>
     </div>

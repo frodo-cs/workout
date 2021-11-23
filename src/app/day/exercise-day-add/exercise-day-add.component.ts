@@ -1,7 +1,7 @@
 import { Exercise } from 'src/app/interfaces/exercise';
 import { ExerciseSet } from './../../interfaces/exercise-set';
 import { DayService } from '../day.service';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-exercise-day-add',
@@ -10,9 +10,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ExerciseDayAddComponent implements OnInit {
   @Output() event = new EventEmitter<Exercise>();
+  @Input() exercise: Exercise = {} as Exercise;
   exercises: Exercise[] = [];
   sets: ExerciseSet[] = [];
-  exercise: Exercise = {} as Exercise;
   addSet: boolean = false;
 
   constructor(

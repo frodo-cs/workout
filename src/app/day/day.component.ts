@@ -16,6 +16,7 @@ export class DayComponent implements OnInit {
   freeDays: number[] = [];
   oldDay: number = 0;
   newExercise: boolean = false;
+  exercise: Exercise = {} as Exercise;
 
   constructor(
     public sharedService : SharedService,
@@ -57,5 +58,10 @@ export class DayComponent implements OnInit {
   removeExercise(exercise : Exercise){
     this.day.exercises = this.day.exercises.filter(x => x.id != exercise.id);
     this.dayService.updateDay(this.day.day, this.day);
+  }
+
+  editExercise(exercise : Exercise){
+    this.newExercise = true;
+    this.exercise = exercise;
   }
 }
