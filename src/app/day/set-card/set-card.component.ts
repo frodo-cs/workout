@@ -12,9 +12,6 @@ export class SetCardComponent {
   @Output() event = new EventEmitter<ExerciseSet>();
   @Input() erasable: boolean = true;
 
-  constructor(){
-    console.log(this.erasable);
-  }
   delete() : void {
     this.event.emit(this.set);
   }

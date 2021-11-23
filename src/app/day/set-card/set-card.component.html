@@ -10,7 +10,7 @@
             {{ index }} Reps: {{ set.reps }} Weight: {{ set.weight }} Duration: {{ set.duration }}
         </mat-card-subtitle>
     </mat-card-title-group> 
-    <mat-card-actions align="end" *ngIf="erasable">
+    <mat-card-actions align="start" *ngIf="erasable">
         <button mat-button (click)="delete()">
             <mat-icon>delete</mat-icon>
         </button>
