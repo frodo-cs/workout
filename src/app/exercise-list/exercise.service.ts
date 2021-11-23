@@ -24,4 +24,15 @@ export class ExerciseService {
       this.saveExercises(exercises);
     }
   }
+
+  updateExercise(exercise: Exercise) {
+    let storage = localStorage.getItem('exercises');
+
+    if(storage){
+      let exercises: Exercise[] = JSON.parse(storage) as Exercise[];
+      exercises = exercises.filter(x => x.id != exercise.id);
+      exercises.push(exercise);
+      this.saveExercises(exercises);
+    }
+  }
 }

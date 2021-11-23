@@ -21,7 +21,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle'
 
 import { DayCardComponent } from './home/day-card/day-card.component';
 import { HomeComponent } from './home/home.component';
-import { ExerciseCardComponent } from './shared/exercise-card/exercise-card.component';
+import { ExerciseCardComponent } from './exercise-list/exercise-card/exercise-card.component';
 import { HomeAddDayComponent } from './home/home-add-day/home-add-day.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';

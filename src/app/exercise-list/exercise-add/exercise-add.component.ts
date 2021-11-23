@@ -10,7 +10,7 @@ import { SharedService } from 'src/app/shared/shared.service';
   styleUrls: ['./exercise-add.component.scss']
 })
 export class ExerciseAddComponent implements OnInit {
-  muscles: string[] = [
+  muscleNames: string[] = [
     "Chest",
     "Shoulders",
     "Abs",
@@ -33,7 +33,12 @@ export class ExerciseAddComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Exercise) { }
 
     ngOnInit() : void {
-      this.musclesCheckBox = this.muscles.map(m => ({ name: m, checked: false }));
+      for(let i = 0; i < this.muscleNames.length; i++){
+        this.musclesCheckBox.push({
+          name: this.muscleNames[i],
+          checked: this.data.muscles.indexOf(this.muscleNames[i]) >= 0,
+        })
+      }
     }
 
     cancel() : void {
