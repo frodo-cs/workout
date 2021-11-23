@@ -17,15 +17,15 @@
     </mat-button-toggle-group>
     <mat-form-field appearance="fill" *ngIf="!isDuration">
         <mat-label>Reps</mat-label>
-        <input required minlength="1" matInput [(ngModel)]="set.reps">
+        <input type="number" required minlength="1" matInput [(ngModel)]="set.reps">
     </mat-form-field> 
     <mat-form-field appearance="fill" *ngIf="!isDuration">
         <mat-label>Weight</mat-label>
-        <input required minlength="1" matInput [(ngModel)]="set.weight">
+        <input type="number" required minlength="1" matInput [(ngModel)]="set.weight">
     </mat-form-field> 
     <mat-form-field appearance="fill" *ngIf="isDuration">
         <mat-label>Duration</mat-label>
-        <input required minlength="1" matInput [(ngModel)]="set.duration">
+        <input type="number" required minlength="1" matInput [(ngModel)]="set.duration">
     </mat-form-field> 
     <div fxLayoutAlign="center center">
         <button mat-mini-fab color="accent" (click)="sendSet()">

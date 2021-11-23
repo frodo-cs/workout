@@ -7,9 +7,13 @@
             Muscles: {{ getMuscles() }}
         </mat-card-subtitle>
     </mat-card-title-group>    
-    <mat-card-actions align="end">
+    <mat-card-actions align="start">
         <button mat-button (click)="delete()">
             <mat-icon>delete</mat-icon>
+        </button>
+        <div fxFlex></div>
+        <button mat-button>
+            <mat-icon>edit</mat-icon>
         </button>
     </mat-card-actions>
 </mat-card>
